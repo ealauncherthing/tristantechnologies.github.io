@@ -1,0 +1,126 @@
+body {
+	background-color:rgb(244,244,244);
+	font-family:Helvetica, Arial;
+}
+	
+#container{
+	background-color:white;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#header{
+	font-family: "Trebuchet MS", Geneva;
+	padding:2px 0px 2px 0px;
+	background-color: rgb(200,200,255);
+	color: white;
+	text-align: center;
+}
+
+#content {
+	padding:10px;
+}
+
+#main{
+	width:600px;
+	float: right;
+}
+
+#nav {
+	position:fixed;
+	top:110px;
+	text-align:left;
+	width: 150px;
+	padding:0 0 0 0px;
+	margin: 0 15px 0 0;
+	float: left;
+	background-color:rgb(240,240,255);
+	border-left-style: solid;
+	border-width:7px;
+	border-color:rgb(200,200,255);
+}
+
+#nav h3 {
+	margin:0;
+	padding: 15px;
+	background-color:rgb(210,210,255);
+	color:black;
+	border-bottom-style:solid;
+	border-width:5px;
+	border-color:rgb(200,200,255);
+}
+
+#nav h4 {
+	padding: 0 0 0 10px;
+}
+
+#nav a.selected {
+	font-weight:bold;
+}
+
+#nav a:active {
+	color:black;
+	font-weight:bold;
+}
+
+#nav a:hover {
+	font-weight:bold;
+}
+
+#nav a {
+	text-decoration: none;
+}
+
+#nav ul{
+	list-style-type: none;
+	padding: 0 0 0 10px;
+}
+
+#portrait {
+	padding:10px 0px;
+	clear: both;
+	text-align: center;
+}
+
+#portrait img {
+	float: left;
+	width:150px;
+	height:200px;
+}
+
+#pInfo {
+	padding: 0;
+	margin: 0;
+	width: 430px;
+	float: right;
+	text-align:left;
+}
+
+#pInfo h3 {
+	padding:0px;
+	margin:0px;
+}
+
+#blogImg {
+	width:580px;
+	length:300px;
+	transition: .3s ease;
+	box-shadow:0;
+	backface-visibility: hidden;
+}
+
+#blogImg:hover {
+	box-shadow:0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+
+#info {
+	float: right;
+}
+
+#footer {
+	padding: 10px 10px 10px 0px;
+	text-align: right;
+	clear: both;
+	background-color: rgb(230,230,255);
+}

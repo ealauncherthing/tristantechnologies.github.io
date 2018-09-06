@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TT Blog - Glider</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div id="container"> 
+	
+		<div id="header">
+			<h1> Tristan Technologies</h1>
+		</div>
+		
+		<div id = "content">
+			<div id ="nav">
+				<h3>Navigation</h3>
+				<ul>
+				
+					<li><a href="index.html">Home</a></li>
+					<li><a href="team.html">Team</a></li>
+					<li><a href="review.html">Review</a></li>
+				</ul>
+				<h4>Blog</h4>
+				<ul>
+					<li><a href="popsicle_bridge.html">Popsicle bridge</a></li>
+					<li><a href="paper_airplane.html">Flying Paperwork</a></li>
+					<li><a href ="glider.html" class="selected">Glider</a></li>
+					<li><a href ="website.html">Website</a></li>
+					<li><a href="paper_plane.html">Paper Plane</a></li>
+			</div>
+			
+			<div id="main">
+			<h2>Flying Paperwork</h2>
+				<hr>
+				<h4>Resources</h4>
+				<p><b>THIS IS A PLACE HOLDER, DONT FORGET ME!!!!</b></p>
+				<p>Everything that could be found in EA Fablab</p>
+				<h4>Mission Statement</h4>
+					<p>Be able to send a A4 sized paper or smaller and sent it 
+					through air. Paper must arrive in a neat fashion. Must have
+					accuracy and sometimes distance. Must all be automated</p>
+				<h3>Phase 1</h3>
+				<h4>Design 1</h4>
+					<p>Using a paper airplane to shoot the message through air</p>
+					<img src
+				<h4>Design 2</h4>
+					<p>Shooting a bullet like object through the air to send the message</p>
+					<p>For this, we thought of the weapon of choice that we use to use during our secondary school
+					time, a thickly folded paper propelled using rubber band normally used to cause our peers to be 
+					in deep pain and hatred towards us. However, we think this idea could be useful for tranferring the
+					message through the air as it should have enough force to cut through the air(since it can harm human too)</p>
+					<img src="img/bulletV1.jpg" alt="Bullet Prototype 1" id="blogImg">
+					<img src="img/rubberband_launcher.jpg" alt="Rubberband launcher" id="blogImg">
+				<h4>Design 3</h4>
+					<p>Using a glider to carry the message through the air</p>
+					<img src="img/gliderV1.jpg" alt="glider version one" id="blogImg">
+					<p>This is our very first design on glider to see how it would fly, it is just
+					a very simple design with no planning at all. We just want to try whether a glider shape
+					using paper and popsicle stick could be used</p>
+					<p>After testing, it failed horribly but decided that with a better planning and design, 
+					the glider should be able to send our message through the air</p>
+				<h3>Phase 2 - Launcher</h3>
+				<h4>Resources</h4>
+				<p>2x DC Motor</p>
+				<p>2x Servo Motor</p>
+				<p>2x Push Button</p>
+				<p>1x Arduino Uno</p>
+				
+				<!-- ADD MORE STUFF LATER ON WHEN USING THEM -->
+				
+				<p>Wires</p>
+				<h4> Launcher Design</h4>
+				<p>After coming up with some medium that we can use to hold our 
+				messages, we start coming up with design for our launcher</p>
+				<p>Since we need to have either accuracy or distance, we design our
+				launcher to have its launching mechanism variable so we can 
+				vary the speed and we intent to have a dual-axis servo control 
+				so we could launch it anywhere we want.</p>
+				<img src="img/launcher_top.jpg" alt="Top-down view of launcher" id="blogImg">
+				<img src="img/launcher_side.jpg" alt="Side view of launcher" id="blogImg">
+				<p>This will be the physical frame of the launcher</p>
+				<h4>Launcher Electronics</h4>
+				<p>With the design to achieve both distance and accuracy, we figured
+				out that we will need 2 DC motor for the launching the projectile and
+				2 servo to control the 2-axis tilt of the launcher. The launcher must be
+				automated so we will have 3 buttons each with its own instruction to 
+				shoot straight, left, and right.</p>
+				<h5>Button</h5>
+				<img src="img/button_design.jpg" alt="Button Design" id="blogImg">
+				<p>We will be using a pull-down resistor to make the button interface
+				with the Arduino</p>
+				<h5>Dual Motor Launcher</h5>
+				<img src="img/motor_design.jpg" alt="Motor Design" id="blogImg">
+				<p>We will connect the motor using NPN Transistor to use as a switch and an amplifier so
+				that we can use the output I/O in our Arduino to control the motor. We have also chosen to
+				use the PWM to adjust the speed of the motor for better accuracy</p>
+				<p>Finally, we add the servo motor that will control the direction of our launch</p>
+				<p>We simulate it using Tinker CAD and it works!</p>
+				<!--<img src="img/simulation1.jpg" alt="First Simulation" id="blogImg">-->
+				<img src="img/simulation2.jpg" alt="Second Simulation" id="blogImg">
+				<p>With that all the electronic components are working</p>
+
+			</div>
+		</div>
+
+		<div id="footer">
+			Copyright Tristan Technologies 2018 &copy;
+		</div>		
+		
+	</div>
+</body>				
+</html>
