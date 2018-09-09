@@ -101,7 +101,7 @@
 					<p>We stick the two motor with tape and for the launcher head. We
 					used two bottle cap and superglued a cut up rubber band for some friction</p>
 					<img src="img/launcher_head1.jpg" alt="Launcher Head" id="blogImg">
-					<h4>Launcher Electronics</h4>
+				<h4>Launcher Electronics</h4>
 					<p>With the design to achieve both distance and accuracy, we figured
 					out that we will need 2 DC motor for the launching the projectile and
 					2 servo to control the 2-axis tilt of the launcher. The launcher must be
@@ -122,10 +122,82 @@
 					<!--<img src="img/simulation1.jpg" alt="First Simulation" id="blogImg">-->
 					<img src="img/simulation2.jpg" alt="Second Simulation" id="blogImg">
 					<p>With that all the electronic components are working</p>
+					<p>Note: all the ground connection needs to be connected together to have a "common ground".
+					If this is not done, the circuit might not work</p>
 				<h4>Testing</h4>
 					<p>After connecting everything together, we start our first testing</p>
 					<img src="img/launcher_testing1.jpg" alt="Testing 1" id="blogImg">
-
+					<p>The dual motor works and so we procced with the servo mount</p>
+				<h4>Launcher Base</h4>
+					<p>We then procced to make the base of out launcher.
+					This is how we plan our launcher to be mounted to the servo, with
+					a 45 degree tilt</p>
+					<img src="img/launcher_mount_height.jpg" alt="Servo mount height" id="blogImg">
+					<p>After doing math we then made it out and tested it</p>
+					<img src="img/testing2.jpg" alt="Test 2" id="blogImg">
+					<p>We found out that it flies high, but not very far. From the feedback 
+					of our lecturer, we did more testing with different angle and found out that 
+					30 degree will be optimal</p>
+					<p>After that,we design the base where the servo and the launcher is going
+					to sit so that we can turn the launcher in whatever angle we pleases</p>
+					<img src="img/base_design.jpg" alt="base design" id="blogImg">
+					<p>The design will use a servo to turn a belt that is wrap around the base
+					of the launcher that is 3D printed.</p>
+					<p>STL file: <a href="resources/ball_bearing_adapter.stl">Ball Bearing Adapter</a></p>
+					<img src="img/adapter1.jpg" alt="Ball bearing adapter" id="blogImg">
+					<p>Then, we begin construction</p>
+					<img src="img/belt_testing.jpg" alt="Belt testing picture" id="blogImg">
+					<p>When we are done making it, we tested the turning mechanism....
+					Turns out (pun totally not intended) the belt did not have enough 
+					tension to turn the base of the launcher</p>
+					<p>Plan B, we were too tired to thing of ingenious engineering idea to turn the launcher,
+					so we just super glued the base of the launcher to the servo and call it a day.</p>
+					<src img="img/final_base.jpg" alt="Final Base" id="blogImg">
+				<h4>Testing 2</h4>
+					<p>And.... it works... yay...!</p>
+					<p>With that, all our components are working and the servo manages to turn the entire
+					launcher with alot of woobling but hey, it works!</p>
+					<p>This is all the progress and steps
+					that we took to reach here so congratulation for reading up till here...
+					Here is a picture of happy Tristan for you :D</p>
+					<img src="img/happy_tristan.jpg" alt="Happy pic" id="blogImg">
+					<p>However, as with any other good engineers, we have our own share of feature creeping along the way.
+					So beyond this point are stuff that are not essential for the project but we still did it for the fun of it.</p>
+					<p>But before that, we made a few adjusment to previous decision to make our launcher more stable.</p>
+				<h4>Adjustment</h4>
+					<p>Firstly, we did not want to use plain <i>URGHH...</i> buttons to control our system, we wanted it to use 
+					a computer interface kind of system to control it. So we threw away the buttons</p>
+					<img src="img/simulation3.jpg" alt="Simulation with no button" id="blogImg">
+					<p>Secondly, our seniors pointed out that if we want our motor to achieve a higher RPM, we should give it more voltage.
+					However, our whole system was design under one power supply that is 5V. Cranking this number to speed up our motor will 
+					be disastrous as it is connected in parallel to our servo which could only take 5V. Thus, we split the system to its
+					individual circuit using two different power supply such that our servo can have 5V supply, while our motor 7V or higher.</p>
+					<img src="img/simulation4.jpg" alt="Simulation with 2 different power source" id="blogImg">
+					<p>We also change the transistor that is controlling the motor to a higher resistance one so that we could afford to send 
+					a higher current to our motor wihout killing the transistor</p>
+				<h4>Feature Creep</h4>
+					<h5>Glider</h5>
+						<p>The length of what we did just to do this feature was so long that we decide
+						that it might as well be its own project. You can find it <a href="glider.html">HERE</a>.</p>
+					<h5>Computer Interface</h5>
+						<p>For interfacing with the launcher, we want to be able to control both the angle of rotation and speed. Using buttons to do all that
+						will not be very convinient, so we decided to make a terminal interface with it. By using Arduino's own Serial command, we wrote our 
+						code to be able to accept commands from the Serial.</p>
+						<p>Computer interface source code: <a href="resources\Plane_Launcher_final\Plane_Launcher_final.ino">HERE</a></p>
+						<p>Button interface source code: <a href="resources\Plane_Launcher\Plane_Launcher.ino">HERE</a></p>
+						<p>Note: Launching Motor must be connected to pin 5 and 6. Servo must be connected to pin 11</p>
+						<p>Button connected to pin 8, 9, and 10.</p>
+				<h4>Final Prototype</h4>
+					<img src="img/final_product.jpg" alt="Final Product" id="blogImg">
+					<p>Videos of our prototype</p>
+					<img src="img/turning.gif" alt="Turning GIF" id="blogImg">
+					<img src="img/launching.gif" alt="Launching GIF" id="blogImg">
+					<p>During the demo, the launcher manage to only launch the paper airplane to about 1 meter. Compared
+					to the other design, it is safe to say that ours achieved the shortest distance. The cause for it was 
+					that there was too much friction in our cardboard launcher and that the launcher was too heavy and bulky,
+					so it was unstable and thus we could not load the paper plane properly. Other than that, our computer interface
+					system works pretty well(other than a bug that always make it turn a 180 degree whenever we launch it).</p>
+					<p>If given a chance to do it again, we would have used acrylic and made the whole thing smaller.</p>
 			</div>
 		</div>
 

@@ -1,5 +1,7 @@
 #include <Servo.h>
 
+const int dly = 300;
+
 //DC motor pin
 int motorA = 6;
 int motorB = 5;
@@ -22,6 +24,8 @@ String userInput = "";
 int lSpeed = 0;
 int lTime = 5000;
 int lAngle = 0;
+double powerPercent;
+int currentAngle, prevAngle;
 
 void setup() {
   pinMode(button1, INPUT);
@@ -30,66 +34,112 @@ void setup() {
 
   pinMode(motorA, OUTPUT);
   pinMode(motorB, OUTPUT);
-
   Serial.begin(9600);
-  Serial.println("Paper_Plane Launcher v1 - Tristan Technologies");
+  Serial.println("Kurznetsov Surface To A
+
+  myservo.attach(11);
+ir Missile Launcher Control Interface v1 - Tristan Technologies");
 }
 
 void loop() {
 
-  Serial.println("\nCommand:\nlaunch\nspeed\nangle\n");
+  Serial.println("\nEnter Configuration Parameters:\nLaunch\nSpeed\nAngle\n");
   while (userInput == "")
   {
     userInput = Serial.readString();
-    //Serial.println(userInput);
+    Serial.println(userInput);
     if (userInput == "launch")
     {
-      Serial.println("launching...");
-      //Rev up engine
-      analogWrite(motorA,lSpeed);
-      analogWrite(motorB,lSpeed);
+
+      Serial.println ("Launch Parameters:\n");
+      Serial.println ("Azimuthal Angle: ");
+      Serial.println (lAngle);
+      Serial.println ("\nDrive Power: ");
+      Serial.println (powerPercent);
+
+
+      // Serial.println ("\nConfirm Launch? <y/n>");
+      //userInput = Serial.readString();
+
+      Serial.println("Launch Committed, executing...");
+
+      analogWrite(motorA, lSpeed);
+      analogWrite(motorB, lSpeed);
       delay(lTime);
+      analogWrite(motorA, 0);
+      analogWrite(motorB, 0);
       Serial.println("launch end");
+
     }
     else if (userInput == "angle")
     {
       userInput = Serial.readString();
-      Serial.println("Specify Angle");
+      Serial.println("Specify Angle (-90 to 89)");
       while (userInput == "")
       {
         userInput = Serial.readString();
         if (userInput != "")
         {
+          lAngle = userInput.toInt();
           //set Servo to
-        
-          delay(500);
-          Serial.println(userInput.toInt());
-        }
-      }
-    }
-    else if (userInput == "speed")
-    {
-      userInput = Serial.readString();
-      Serial.println("Specify Speed");
-      while (userInput == "")
-      {
-        userInput = Serial.readString();
-        if (userInput != "")
-        {
-          //set Speed to userInput
-          lSpeed = userInput.toInt();
+          if (lAngle < -90 || lAngle > 89)
+          {
+            Serial.println("Error - Wrong Angle");
+          }
+          else
+          {
+            lAngle += 90;
 
-          analogWrite(motorA, lSpeed);
-          analogWrite(motorB, lSpeed);
-          delay(500);
-          Serial.print("Set speed to ");
-          Serial.println(lSpeed);
+            currentAngle = prevAngle; //Set Current angle = to previous stored angle
 
-          analogWrite(motorA, 0);
-          analogWrite(motorB, 0);
+            if (lAngle > prevAngle) {
+
+              while (currentAngle < lAngle)
+                currentAngle = currentAngle + 5;
+              myservo.write(currentAngle);
+              delay(dly);
+              lAngle = prevAngle;
+            }
+          else if (lAngle < prevAngle) {
+
+            while (currentAngle > lAngle) {
+              currentAngle = currentAngle - 5;
+              myservo.write(currentAngle);
+              delay(dly);
+              lAngle = prevAngle;
+            }
+          }
         }
       }
     }
   }
-  userInput = "";
+  else if (userInput == "speed")
+  {
+    userInput = Serial.readString();
+    Serial.println("Specify Speed In Percentage ");
+    while (userInput == "")
+    {
+      userInput = Serial.readString();
+      if (userInput != "")
+      {
+        //set Speed to userInput
+        powerPercent = userInput.toInt();
+
+        lSpeed = (powerPercent / 100) * 255;
+
+        analogWrite(motorA, lSpeed);
+        analogWrite(motorB, lSpeed);
+        Serial.print("Set speed to ");
+        Serial.println(powerPercent);
+        Serial.print("% and ");
+        Serial.print(lSpeed);
+        Serial.println(" PWM\n");
+        delay(1000);
+        analogWrite(motorA, 0);
+        analogWrite(motorB, 0);
+      }
+    }
+  }
+}
+userInput = "";
 }

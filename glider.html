@@ -6,17 +6,17 @@
 </head>
 
 <body>
-	<div id="container"> 
-	
+	<div id="container">
+
 		<div id="header">
 			<h1> Tristan Technologies</h1>
 		</div>
-		
+
 		<div id = "content">
 			<div id ="nav">
 				<h3>Navigation</h3>
 				<ul>
-				
+
 					<li><a href="index.html">Home</a></li>
 					<li><a href="team.html">Team</a></li>
 					<li><a href="review.html">Review</a></li>
@@ -29,85 +29,148 @@
 					<li><a href ="website.html">Website</a></li>
 					<li><a href="paper_plane.html">Paper Plane</a></li>
 			</div>
-			
+
 			<div id="main">
-			<h2>Flying Paperwork</h2>
+			<h2>Glider Development</h2>
 				<hr>
 				<h4>Resources</h4>
-				<p><b>THIS IS A PLACE HOLDER, DONT FORGET ME!!!!</b></p>
-				<p>Everything that could be found in EA Fablab</p>
-				<h4>Mission Statement</h4>
-					<p>Be able to send a A4 sized paper or smaller and sent it 
-					through air. Paper must arrive in a neat fashion. Must have
-					accuracy and sometimes distance. Must all be automated</p>
-				<h3>Phase 1</h3>
-				<h4>Design 1</h4>
-					<p>Using a paper airplane to shoot the message through air</p>
-					<img src
-				<h4>Design 2</h4>
-					<p>Shooting a bullet like object through the air to send the message</p>
-					<p>For this, we thought of the weapon of choice that we use to use during our secondary school
-					time, a thickly folded paper propelled using rubber band normally used to cause our peers to be 
-					in deep pain and hatred towards us. However, we think this idea could be useful for tranferring the
-					message through the air as it should have enough force to cut through the air(since it can harm human too)</p>
-					<img src="img/bulletV1.jpg" alt="Bullet Prototype 1" id="blogImg">
-					<img src="img/rubberband_launcher.jpg" alt="Rubberband launcher" id="blogImg">
-				<h4>Design 3</h4>
-					<p>Using a glider to carry the message through the air</p>
+
+				<p>For glider development, we employed the use of a software
+				called XFLR 5. This is a freeware software developed based
+			  on the XFOIL code but is capable of simulating viscous effects
+				in 3D models by means of an interpolation feature.</p>
+
+				<p>The glider itself was made of materials that were easily
+				accessible such as ice cream sticks, straws, A4 sheets of paper
+				and also paper clips.</p>
+
+				<h4>Design Objectives</h4>
+
+					<p>The glider had to be able to send a A4 sized paper through
+					the air. The Paper must arrive in a neat fashion and must have
+					accuracy. Long distance is also a design goal. The launch process
+					must be automated.</p>
+
+				<h4>Some Design Considerations</h4>
+					<p>Based on the design objectives, we can stipulate some basic
+					parameters for the glider. As we would like to have some form
+					of long range capability, our design had to have a high CL/CD
+					ratio, as well as light weight As we would soon find out, this would be incredibly hard to
+					achieve as we had to work with a flat piece of A4 paper.</p>
+
+					<p>Achieving sufficient lift was also a problem in itself due to constrained
+					wing area available. The constrained wing area arose as a result of
+					the neccessity to launch the glider from an automated launch platform
+					which only could impart a certain amount of power. In the event, the
+					motors driving the flywheel ran into some power draw issues, and even
+					the final design (a paper plane) had problems being launched.</p>
+
+					<p>Finally, as a result of the requirement for accuracy, the glider
+					had to be able to mantain both stability in all 3 axes (Longitudinal,
+					Directional, Lateral) Unfortunately, we had barely managed to achieve
+					any form of longitudinal stability.</p>
+					<img src="img/stability.jpg" alt="stab diag" id="blogImg">
+
+				<h4><br>First Design</h4>
+					<p>Honestly, this one was the one that was rushed the most. We were rushing
+					to get all 3 designs out for the first part of the competition, so this one
+					was built out of a small piece of A4 paper, held together by a bunch of tape
+					and ice cream sticks. It has an incredibly small wing area, and the tail
+					is misplaced relative to the CG. As the person who designed this (Tristan,
+					who is writing this segment) has minimal experience in glider design,
+					the glider ultimately failed to fly properly, and ended up nose diving to its
+					eventual demise on the floor.</p>
+
+					<p>The wing spar was comprised of a few ice cream sticks taped together,
+					and the message (which was supposed to also be the wing), was paperclipped
+					to the spar. This rather crude design incurred a serious weight penalty
+					which had to be resolved in later versions of the glider.</p>
 					<img src="img/gliderV1.jpg" alt="glider version one" id="blogImg">
-					<p>This is our very first design on glider to see how it would fly, it is just
-					a very simple design with no planning at all. We just want to try whether a glider shape
-					using paper and popsicle stick could be used</p>
-					<p>After testing, it failed horribly but decided that with a better planning and design, 
-					the glider should be able to send our message through the air</p>
-				<h3>Phase 2 - Launcher</h3>
-				<h4>Resources</h4>
-				<p>2x DC Motor</p>
-				<p>2x Servo Motor</p>
-				<p>2x Push Button</p>
-				<p>1x Arduino Uno</p>
-				
-				<!-- ADD MORE STUFF LATER ON WHEN USING THEM -->
-				
-				<p>Wires</p>
-				<h4> Launcher Design</h4>
-				<p>After coming up with some medium that we can use to hold our 
-				messages, we start coming up with design for our launcher</p>
-				<p>Since we need to have either accuracy or distance, we design our
-				launcher to have its launching mechanism variable so we can 
-				vary the speed and we intent to have a dual-axis servo control 
-				so we could launch it anywhere we want.</p>
-				<img src="img/launcher_top.jpg" alt="Top-down view of launcher" id="blogImg">
-				<img src="img/launcher_side.jpg" alt="Side view of launcher" id="blogImg">
-				<p>This will be the physical frame of the launcher</p>
-				<h4>Launcher Electronics</h4>
-				<p>With the design to achieve both distance and accuracy, we figured
-				out that we will need 2 DC motor for the launching the projectile and
-				2 servo to control the 2-axis tilt of the launcher. The launcher must be
-				automated so we will have 3 buttons each with its own instruction to 
-				shoot straight, left, and right.</p>
-				<h5>Button</h5>
-				<img src="img/button_design.jpg" alt="Button Design" id="blogImg">
-				<p>We will be using a pull-down resistor to make the button interface
-				with the Arduino</p>
-				<h5>Dual Motor Launcher</h5>
-				<img src="img/motor_design.jpg" alt="Motor Design" id="blogImg">
-				<p>We will connect the motor using NPN Transistor to use as a switch and an amplifier so
-				that we can use the output I/O in our Arduino to control the motor. We have also chosen to
-				use the PWM to adjust the speed of the motor for better accuracy</p>
-				<p>Finally, we add the servo motor that will control the direction of our launch</p>
-				<p>We simulate it using Tinker CAD and it works!</p>
-				<!--<img src="img/simulation1.jpg" alt="First Simulation" id="blogImg">-->
-				<img src="img/simulation2.jpg" alt="Second Simulation" id="blogImg">
-				<p>With that all the electronic components are working</p>
+
+					<h4>Second Design (and how we got there)</h4>
+					<p>We decided to try an approach which was not as haphazard as the
+					one we used to design the first glider. Thus, when I went home, I
+					decided to run some simulations to find a workable glider design. The
+					program of choice was XFLR5, since I had played around with it a few
+					years back and was decently familiar with the interface. The program
+					calculated the vehicle polars, which was useful for determining stability
+					as well as general performance. To top it off, there was a nice 3D
+					GUI to help visualise the design as well the flow features and force
+					vectors.</p>
+
+					<img src="img/3dV2.jpg" alt="glider version one" id="blogImg">
+					<p>This was a 3D render of the glider model</p>
+
+					<img src="img/Polars.jpg" alt="glider version one" id="blogImg">
+					<p>Aerodynamic Polars for the model glider</p>
+
+					<p>It took a some trial and error and get a stable model (negative Cm V alpha line)
+					I also had to use a thin, symmetrical NACA airfoil to approximate the 'flat plate'
+					that was our A4 paper.</p>
+
+					<p>This was actually my first time using this software to produce
+					a flyable glider, and there was a good chance that I had forgotten or
+					misinterpreted something along the way (<i>And it turns out I completely
+					forgot about the weight issue</i>). So when it came to actually constructing
+					the glider, we used ice cream sticks and A4 paper again. Some hot glue
+					had to be applied to the nose of the glider to  shift the CG to 25% chord.
+					Also, I had the conception that using paper clips to attach the 'wing'
+					(message) would produce a system where the user could easily remove the
+					paper when the glider landed.</p>
+
+					<p>After the first test flight, it was realised that the glider was still
+					too heavy to fly, and ended up stalling out of the air, again meeting its
+					demise with the floor. On the bright side, if thrown right, this Second
+					version of the glider stayed in the air abit longer than the first one
+					(which nosed dived the first chance it got), but still this design
+					wouldnt fufill the requirements.</p>
+
+					<img src="img/gliderV2_design.jpg" alt="glider version two" id="blogImg">
+
+					<p>Rough Sketch for the glider, based on the simulation</p>
+
+					<img src="img/gliderV2.jpg" alt="glider version two" id="blogImg">
+
+
+				<h4><br>Design 3</h4>
+
+				<p>After the previous 2 designs, it was advised that we use a lighter material
+				to cut the weight of the glider down, and to do so, plastic straws were employed.
+				So during lunch, I went to grab a handful of straws from the food court
+				and when I came back, I force-fitted them together to form the 'fuselage'.
+				The wing spar was still made out of ice cream sticks, as we felt the straws
+				themsleves might be abit flimsy to hold the 2 paper clips which secured
+				paper to the spar. The spar was taped to the fuselage. As we were running short
+				on time by then, we had to eyeball the dimensions for this glider. But we
+				did attempt sizing similar to the previous one.</p>
+
+				<img src="img/gliderV3.jpg" alt="glider version three" id="blogImg">
+				<p>Version 3 of the glider</p>
+
+				<p>Upon test flying it, we realised that this new glider still had a tendency
+				to stall out at the end part of its flight, although it could stay in the air
+				longer than the first 2 had. Also, when we tried to throw it abit faster
+				the glider would corkscrew and roll out of control. This was likely due to
+				the fact that the wing spar did not extend to the end of the wing, resulting
+				in flutter as the vehicle flew, causing a asymmetrical lift distribution across the wing that
+				produced a rolling moment.</p>
+
+				<h4><br>Conclusion</h4>
+
+				<p>Further iterations and testing might have produced a functioning glider (we probably needed to radically overhaul the design),
+				but unfortunately due to the lack of time, this could not be accomplished.
+				Therefore, we reverted to using a paper airplane which displayed better characteristics
+				than all 3 designs we had.
+
+				<img src="img/plane_how10.jpg" alt="plane" id="blogImg">
 
 			</div>
 		</div>
 
 		<div id="footer">
 			Copyright Tristan Technologies 2018 &copy;
-		</div>		
-		
+		</div>
+
 	</div>
-</body>				
+</body>
 </html>

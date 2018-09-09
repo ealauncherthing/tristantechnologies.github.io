@@ -1,2 +1,2 @@
-# tristantechnologies.github.io
-This is the website for the EA Program
+# ealauncherthing.github.io
+This is second try for website

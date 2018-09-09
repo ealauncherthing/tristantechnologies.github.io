@@ -17,11 +17,10 @@ int stateC;
 //Servo declaration
 Servo myservo;
 
-//Feature Creep...:D
-String userInput = "";
-int lSpeed = 0;
-int lTime = 5000;
+//Feature creep
+int launchCode = 0;
 int lAngle = 0;
+int lSpeed = 0;
 
 void setup() {
   pinMode(button1, INPUT);
@@ -31,8 +30,11 @@ void setup() {
   pinMode(motorA, OUTPUT);
   pinMode(motorB, OUTPUT);
 
+  myservo.attach(11);
+  myservo.write(90);
+
   Serial.begin(9600);
-  Serial.println("Paper_Plane Launcher v1 - Tristan Technologies");
+  Serial.println("PaperPlane Launcher v1 - Tristan Technologies");
 }
 
 void loop() {
@@ -40,80 +42,58 @@ void loop() {
   stateB = digitalRead(button2);
   stateC = digitalRead(button3);
 
-  Serial.println("\nMenu:\nlaunch\nangle\nspeed");
-  while (userInput == "")
-  {
-    userInput = Serial.readString();
-    //Serial.println(userInput);
-    if (userInput == "launch")
-    {
-      Serial.println("launching...");
-      //Rev up engine
-      analogWrite(motorA,lSpeed);
-      analogWrite(motorB,lSpeed);
-      delay(lTime);
-      Serial.println("launch end");
-    }
-    else if (userInput == "angle")
-    {
-      userInput = Serial.readString();
-      Serial.println("Specify Angle");
-      while (userInput == "")
-      {
-        userInput = Serial.readString();
-        if (userInput != "")
-        {
-          //set Servo to
-        
-          delay(500);
-          Serial.println(userInput.toInt());
-        }
-      }
-    }
-    else if (userInput == "speed")
-    {
-      userInput = Serial.readString();
-      Serial.println("Specify Speed");
-      while (userInput == "")
-      {
-        userInput = Serial.readString();
-        if (userInput != "")
-        {
-          //set Speed to userInput
-          lSpeed = userInput.toInt();
+//For debug
 
-          analogWrite(motorA, lSpeed);
-          analogWrite(motorB, lSpeed);
-          delay(500);
-          Serial.print("Set speed to ");
-          Serial.println(lSpeed);
+  Serial.print(stateA);
+  Serial.print(" ");
+  Serial.print(stateB);
+  Serial.print(" ");
+  Serial.println(stateC);
 
-          analogWrite(motorA, 0);
-          analogWrite(motorB, 0);
-        }
-      }
-    }
-  }
-  userInput = "";
 
-  if (stateA)
+  if(stateA)
   {
     //button1 pressed action
-    analogWrite(motorA, 255);
-    analogWrite(motorB, 255);
-    delay(5000);
+    lAngle = 0;
+    lSpeed = 255;
+    launchCode = 1;
   }
-  else if (stateB)
+  else if(stateB)
   {
     //button2 pressed action
+    lAngle = 90;
+    lSpeed = 255;
+    launchCode = 1;
   }
-  else if (stateC)
+  else if(stateC)
   {
     //button3 pressed action
+    lAngle = 179;
+    lSpeed = 255;
+    launchCode = 1;
   }
   else
   {
-    analogWrite(motorB, 0);
-    analogWrite(motorA, 0);
+    lAngle = 0;
+    lSpeed = 0;
+    launchCode = 0;
   }
+
+  if(launchCode == 1)
+  {
+    myservo.write(lAngle);
+    delay(500);
+
+    //Rev up motor(might want to change speed)
+    analogWrite(motorA,lSpeed);
+    analogWrite(motorB,lSpeed);
+
+    //Waiting for launch
+    Serial.write("Launching...");
+    delay(5000);
+    Serial.write("launch end");
+    launchCode = 0;
+  }
+
+  
 }
